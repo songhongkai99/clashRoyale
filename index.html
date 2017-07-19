@@ -19,9 +19,10 @@
         input.addEventListener("input", function (e) {
             var v = e.target.value;
             var html = '';
-            AJAX('data.json', function (json) {
-                console.dir(json);
+            info.innerHTML = '正在查询';
+            AJAX('https://raw.githubusercontent.com/songhongkai99/clashRoyale/master/data.json', function (json) {
                 json = JSON.parse(json);
+                console.dir(json);
                 for(let data of Object.keys(json)){
                     if(data == v){
                         for(let [key,value] of Object.entries(json[data])){
